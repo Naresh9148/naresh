@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            background: #0f172a;
+            font-family: Arial;
+            color: white;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #1e293b;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            background: #334155;
+            color: white;
+        }
+
+        button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #3b82f6;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2563eb;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h2>ATM Dashboard</h2>
+        <h3>{{user}}</h3>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+            <h3>Balance</h3>
+            <h1>₹{{balance}}</h1>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Deposit</h3>
+                <form action="/deposit" method="post">
+                    <input name="amount" placeholder="Amount">
+                    <button>Submit</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>Withdraw</h3>
+                <form action="/withdraw" method="post">
+                    <input name="amount" placeholder="Amount">
+                    <button>Submit</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>Transfer</h3>
+                <form action="/transfer" method="post">
+                    <input name="to" placeholder="Username">
+                    <input name="amount" placeholder="Amount">
+                    <button>Send</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
